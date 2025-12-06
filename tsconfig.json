@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "tailwind.config.js", "app/renderKeepAlive.jsx", "app/play/drawingCanvas.jsx"  ],
   "exclude": ["node_modules"]
 }
