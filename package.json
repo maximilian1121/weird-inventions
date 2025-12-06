@@ -14,6 +14,7 @@
         "@tsparticles/react": "^3.0.0",
         "@types/js-cookie": "^3.0.6",
         "@types/socket.io-client": "^3.0.0",
+        "clsx": "^2.1.1",
         "js-cookie": "^3.0.5",
         "next": "16.0.7",
         "react": "19.2.0",
@@ -21,6 +22,7 @@
         "react-dom": "19.2.0",
         "react-qr-rounded": "^1.0.0",
         "socket.io-client": "^4.8.1",
+        "tailwind-merge": "^3.4.0",
         "tsparticles": "^3.9.1"
     },
     "devDependencies": {
