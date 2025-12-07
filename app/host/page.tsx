@@ -381,9 +381,10 @@ export default function Play() {
             setGameState(game_state);
         });
 
-        socket.on("reaction", (data) => {
-            for (let count = 0; count <= 2; count++) {
+        socket.on("reaction", async (data) => {
+            for (let count = 0; count <= randomInt(1, 3); count++) {
                 sendEmoji(data);
+                await sleep(randomInt(100, 700));
             }
         });
 

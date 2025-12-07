@@ -4,8 +4,8 @@ import { io, Socket } from "socket.io-client";
 import Cookies from "js-cookie";
 import DrawingCanvas from "./drawingCanvas";
 import Image from "next/image";
-import { emojiList } from "../emojiCache";
 import { popup } from "../alert";
+import Reactions from "./reactions";
 
 const GameState = Object.freeze({
     WAITING_FOR_SERVER: "waiting_for_server",
@@ -443,21 +443,7 @@ export default function Play() {
                         <p className="text-zinc-700 text-xl">
                             Please wait for the host to start the game!
                         </p>
-                        <div className="flex flex-wrap justify-center items-center max-w-2xl gap-2">
-                            {emojiList.map((emoji, index) => (
-                                <img
-                                    key={index}
-                                    onClick={() => {
-                                        socketRef.current!.emit(
-                                            "send_reaction",
-                                            emoji
-                                        );
-                                    }}
-                                    src={emoji}
-                                    className="text-4xl w-20 h-20 bg-zinc-200 p-2 aspect-square rounded-lg hover:scale-[1.1] transition cursor-pointer select-none rendering-pixelated"
-                                ></img>
-                            ))}
-                        </div>
+                        <Reactions socketRef={socketRef} />
                     </div>
                 ) : null}
                 {gameState === GameState.WRITING ? (
@@ -562,6 +548,7 @@ export default function Play() {
                                 </button>
                             ))}
                         </div>
+                        <Reactions socketRef={socketRef} />
                     </div>
                 ) : null}
                 {gameState == GameState.VOTED ? (
@@ -572,6 +559,7 @@ export default function Play() {
                         <p className="text-zinc-700 text-xl">
                             Your vote has been submitted to the game server.
                         </p>
+                        <Reactions socketRef={socketRef} />
                     </div>
                 ) : null}
             </main>
